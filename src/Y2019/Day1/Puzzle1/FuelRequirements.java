@@ -1,4 +1,4 @@
-package Day1.Puzzle1;
+package Y2019.Day1.Puzzle1;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,7 +16,7 @@ public class FuelRequirements {
 
 		int totalRequiredFuel = 0;
 		// read from file
-		File file = new File("src/Day1/Puzzle1/massOfEachModule.txt");
+		File file = new File("src/Y2019/Day1/Puzzle1/massOfEachModule.txt");
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new FileReader(file));
