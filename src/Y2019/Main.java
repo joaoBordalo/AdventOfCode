@@ -19,9 +19,12 @@ public class Main {
 		//Day 2
 		//Puzzle 1
 		//System.out.println(new OpcodeCalulation().calculateOpcodeOnZeroPosition());
-		
 		//Puzzle 2
-		System.out.println(new OpcodeCalculationNounVerb().calculateOpcodeOnZeroPosition());
+		//System.out.println(new OpcodeCalculationNounVerb().calculateOpcodeOnZeroPosition());
+		
+		//Day 3
+		//Puzzle 1
+		//System.out.println(new NearestCrossedWires.calculateNearestCross());
 
 
 	}

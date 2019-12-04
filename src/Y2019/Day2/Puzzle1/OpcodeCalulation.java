@@ -26,7 +26,7 @@ public class OpcodeCalulation {
 		while (sc.hasNextInt()) {
 		    al.add(sc.nextInt());
 		}
-		
+		sc.close();
 		//puzzle indication "before running the program, replace position 1 with the value 12 and replace position 2 with the value 2"
 		al.set(1, 12);
 		al.set(2, 2);
