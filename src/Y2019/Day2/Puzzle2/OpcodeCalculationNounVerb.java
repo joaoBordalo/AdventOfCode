@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class OpcodeCalculationNounVerb {
@@ -26,44 +27,52 @@ public class OpcodeCalculationNounVerb {
 		while (sc.hasNextInt()) {
 		    al.add(sc.nextInt());
 		}
-		
-		//puzzle indication "before running the program, replace position 1 with the value 12 and replace position 2 with the value 2"
-		al.set(1, -1);
-		al.set(2, -1);
-		ArrayList<Integer> alchangable = al;
-		int instruction;
-		int it = 0;
-		int stopCondition = 19690720;
-		while(al.get)
-		while (true)
-		{
-			if(stopCondition == 100 *al.get(1) + al.get(2))
-			{
-				System.out.println(al.get(1) + " + " + al.get(2));
-				return al.get(0);
-			}
-			instruction = al.get(it);
-		    switch (instruction) {
-				case 1:			
-					al.set(1, 0);
-					al.set(2, 0);
-					al.set(al.get(it+3), al.get(al.get(it+2)) + al.get(al.get(it+1)));
-					it = it + 4 ;
-					break;
-				case 2:
-					al.set(1, 0);
-					al.set(2, 0);
-					al.set(al.get(it+3), al.get(al.get(it+2)) * al.get(al.get(it+1)));
-					it = it + 4 ;
-					break;
-				case 99:
-					return al.get(0);
-				default:
-					System.out.println("ERROR: wrong opcode!!!");
-					break;	
-		    }
+		sc.close();
+		ArrayList<Integer> alchangable;
 
-		}
+		//System.out.println(al.get(0) + " " + al.get(1) + " " + al.get(2) + " " + al.get(3));
+		int instruction;
+		int it;
+		boolean halt;
+		int stopCondition = 19690720;
+		for(int i = 0; i <= 99; i++)
+			for(int j = 0; j <= 99; j++)
+			{
+				halt = false;
+				it = 0;
+				alchangable = (ArrayList<Integer>) al.clone();
+				alchangable.set(1, i);
+				alchangable.set(2, j);
+				//System.out.println(alchangable.get(0) + " " + alchangable.get(1) + " " + alchangable.get(2) + " " + alchangable.get(3));
+				while (!halt)
+				{
+					if(stopCondition == alchangable.get(0))
+					{
+						System.out.println("100 * " + i + " + " + j + " = " + (100 * i + j));
+						return alchangable.get(0);
+					}
+					instruction = alchangable.get(it);
+				    switch (instruction) {
+						case 1:			
+							alchangable.set(alchangable.get(it+3), alchangable.get(al.get(it+2)) + alchangable.get(alchangable.get(it+1)));
+							it = it + 4 ;
+							break;
+						case 2:
+							alchangable.set(alchangable.get(it+3), alchangable.get(al.get(it+2)) * alchangable.get(alchangable.get(it+1)));
+							it = it + 4 ;
+							break;
+						case 99:
+							halt = true;
+							//System.out.println("Halt!");
+							break;
+						default:
+							System.out.println("ERROR: wrong opcode!!!");
+							break;	
+				    }
+
+				}
+			}
+		return -1;
 	}
 
 }
